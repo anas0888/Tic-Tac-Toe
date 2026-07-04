@@ -1,7 +1,6 @@
 const playerBtns = document.querySelectorAll('.playBtn');
-
-
-
+const message = document.querySelector('.message-container')
+const msg = document.querySelector('#msg')
 let turn = true;
 const winPattern = [
 [0,1,2],
@@ -15,6 +14,9 @@ const winPattern = [
     ]
 
 
+function showWinner(winner){ msg.innerText = `The winner is ${winner}` 
+message.classList.remove("hide");
+}
 
 
 
@@ -48,7 +50,7 @@ let pos3Val = playerBtns[pattern[2]].innerText;
 if(pos1Val != "" && pos2Val != "" && pos3Val != ""){
 if(pos1Val === pos2Val && pos2Val === pos3Val){
 console.log("we have a winner", pos1Val)
-
+showWinner(pos1Val);
     }
     }
 
