@@ -1,6 +1,10 @@
 const playerBtns = document.querySelectorAll('.playBtn');
-const message = document.querySelector('.message-container')
-const msg = document.querySelector('#msg')
+const message = document.querySelector('.message-container');
+const msg = document.querySelector('#msg');
+const resetBtn = document.querySelector('.reset')
+
+
+
 let turn = true;
 const winPattern = [
 [0,1,2],
@@ -12,6 +16,20 @@ const winPattern = [
 [1,4,7],
 [0,4,8]
     ]
+
+const resetGame = () => {
+turn = true;
+enableBtn();
+message.classList.add("hide");
+
+    }
+
+const enableBtn = () => {
+for(let button of playerBtns){
+button.disabled = false;
+button.innerText = "";
+    }
+    }
 
 
 function showWinner(winner){ msg.innerText = `The winner is ${winner}` 
@@ -62,3 +80,10 @@ disableBtn();
 
 }
 }
+
+resetBtn.addEventListener("click",resetGame);
+
+
+
+
+
