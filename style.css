@@ -1,29 +1,133 @@
-.main{
-border: 2px solid black;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 95vh;
-    }
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
 
+/* Main Layout Container */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
 
-.container{
-height: 400px;
-width : 400px;
-border: 2px solid black;
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-align-items: center;
-    }
+h1 {
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
 
-.playBtn{
-height:120px;
-width: 120px;
-margin: 2px;
-    }
+/* The 3x3 Grid Board */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background-color: #e0e6ed;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
 
-.hide{
-display: none;
+/* Game Buttons */
+.playBtn {
+    height: 100px;
+    width: 100px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.playBtn:hover:not(:disabled) {
+    background-color: #fdfdfd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.playBtn:disabled {
+    cursor: not-allowed;
+    background-color: #fafbfc;
+}
+
+/* Distinguish X and O styling via CSS color logic */
+.playBtn:not(:empty) {
+    animation: popIn 0.3s ease;
+}
+
+/* Winner Message Box */
+.message-container {
+    background-color: #2ecc71;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+    animation: slideDown 0.3s ease;
+}
+
+/* Reset Button */
+.reset {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.reset:hover {
+    background-color: #2c3e50;
+}
+
+.reset:active {
+    transform: scale(0.98);
+}
+
+/* Footer Styling */
+.footer {
+    margin-top: auto;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #95a5a6;
+}
+
+/* Utilities & Animations */
+.hide {
+    display: none !important;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideDown {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
