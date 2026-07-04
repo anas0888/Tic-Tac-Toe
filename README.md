@@ -41,14 +41,6 @@ Tic-Tac-Toe/
 - If a win is found, the winner is displayed in an overlay and the rest of the board is disabled.
 - The Reset button clears all marks and re-enables the board for a new game.
 
-## Screenshots
-
-<!-- Add screenshots of the game here -->
-
- ![Screenshot 2](screenshots/screenshot2.png) |
- 
-
-> Place your screenshot images in a `screenshots/` folder in the project root, then update the paths above to match your filenames.
 
 ## Author
 
