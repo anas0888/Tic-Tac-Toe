@@ -18,6 +18,11 @@ function showWinner(winner){ msg.innerText = `The winner is ${winner}`
 message.classList.remove("hide");
 }
 
+const disableBtn = () => {
+for(let button of playerBtns){
+button.disabled = true;
+    }
+    }
 
 
 playerBtns.forEach ((playBtn) => { 
@@ -51,6 +56,7 @@ if(pos1Val != "" && pos2Val != "" && pos3Val != ""){
 if(pos1Val === pos2Val && pos2Val === pos3Val){
 console.log("we have a winner", pos1Val)
 showWinner(pos1Val);
+disableBtn();
     }
     }
 
