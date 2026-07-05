@@ -60,11 +60,14 @@ checkWinner();
     }) 
     })
 
-
+const draw = () => {
+msg.innerText = `Draw`;
+message.classList.remove("hide")
+    }
 
 
 function checkWinner(){
-
+let winnerFound = false;
 for (let pattern of winPattern){
 let pos1Val = playerBtns[pattern[0]].innerText;
 let pos2Val = playerBtns[pattern[1]].innerText;
@@ -75,10 +78,28 @@ if(pos1Val === pos2Val && pos2Val === pos3Val){
 console.log("we have a winner", pos1Val)
 showWinner(pos1Val);
 disableBtn();
+winnerFound = true;
+return;
     }
     }
 
 }
+
+let allFilled = true; 
+for(let btn of playerBtns){
+if(btn.innerText === ""){
+
+    
+    
+allFilled = false;
+break;
+}}
+
+if(!winnerFound && allFilled){
+draw();
+disableBtn();
+    }
+
 }
 
 resetBtn.addEventListener("click",resetGame);
